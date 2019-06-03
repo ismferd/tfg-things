@@ -1,0 +1,14 @@
+- name: Transfer and execute a script.
+  hosts: raspberry
+  vars: 
+    hostname: "{{ hostname }}"
+    ip: "{{ ip }}"
+    dns: "{{ dns }}"
+  remote_user: pi
+  sudo: yes
+  tasks:
+     - name: Transfer the script
+       copy: src=hosting.sh dest=/tmp/ mode=0777
+
+     - name: Execute the script
+       command: sh /tmp/hosting.sh {{hostname}} {{ip}} {{dns}}
