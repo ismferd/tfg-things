@@ -1,0 +1,10 @@
+- name: Transfer and execute a script.
+  hosts: raspberry
+  remote_user: pi
+  sudo: yes
+  tasks:
+     - name: Transfer the script
+       copy: src=installer.sh dest=/tmp/ mode=0777
+
+     - name: Execute the script
+       command: sh /tmp/installer.sh 
