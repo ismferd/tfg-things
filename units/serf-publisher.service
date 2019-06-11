@@ -1,0 +1,7 @@
+[Unit]
+Description=Serf Publisher Service
+After=kubelet.service
+
+[Service]
+Type=simple
+ExecStart=/home/pi/serf-publisher-arm --namespace cloudy --kubeconfig /home/pi/.kube/config
